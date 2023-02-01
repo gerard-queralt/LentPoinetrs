@@ -32,7 +32,8 @@ int main()
     //create unique ptr
     std::unique_ptr<A> a = std::make_unique<A>(10);
     //create lent ptr
-    AxoPtr::lent_ptr<A> lentA = AxoPtr::lent_ptr<A>(a.get());
+    AxoPtr::lent_ptr<A> lentA;
+    lentA = AxoPtr::lent_ptr<A>(a.get());
     //operator ->
     lentA->foo();
     //operator *

@@ -9,6 +9,10 @@ namespace AxoPtr
 	class lent_ptr
 	{
 	public:
+		lent_ptr() : rawPointer(nullptr)
+		{
+		}
+
 		lent_ptr(T* rawPointer) : rawPointer(rawPointer)
 		{
 		}
@@ -17,12 +21,12 @@ namespace AxoPtr
 		{
 		}
 
-		inline T* operator ->()
+		inline T* operator ->() const
 		{
 			return rawPointer;
 		}
 
-		inline T& operator *()
+		inline T& operator *() const
 		{
 			return *rawPointer;
 		}
