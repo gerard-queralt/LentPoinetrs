@@ -31,16 +31,6 @@ namespace AxoPtr
 			return *rawPointer;
 		}
 
-		inline operator bool() const
-		{
-			return rawPointer != nullptr;
-		}
-
-		inline bool operator !() const
-		{
-			return rawPointer == nullptr;
-		}
-
 		inline T* operator =(nullptr_t) noexcept
 		{
 			return rawPointer = nullptr;
@@ -64,6 +54,31 @@ namespace AxoPtr
 		inline friend bool operator ==(const lent_ptr<T>& lent, const std::unique_ptr<T>& unique)
 		{
 			return lent.rawPointer == unique.get();
+		}
+		
+		inline friend bool operator !=(const lent_ptr<T>& lent1, const lent_ptr<T>& lent2)
+		{
+			return !(lent1 == lent2);
+		}
+
+		inline friend bool operator !=(const lent_ptr<T>& lent1, T* rawPointer)
+		{
+			return !(lent1 == rawPointer);
+		}
+
+		inline friend bool operator !=(const lent_ptr<T>& lent, const std::unique_ptr<T>& unique)
+		{
+			return !(lent == unique);
+		}
+
+		inline operator bool() const
+		{
+			return this == nullptr;
+		}
+
+		inline bool operator !() const
+		{
+			return this != nullptr;
 		}
 
 	private:

@@ -77,4 +77,19 @@ int main()
     cout << "lent equal to unique? " << std::boolalpha << (lentA == a) << endl;
     cout << "raw equal to lent? " << std::boolalpha << (a.get() == lentA) << endl;
     cout << "unique equal to lent? " << std::boolalpha << (a == lentA) << endl;
+    
+    cout << "lent not equal to self? " << std::boolalpha << (lentA != lentA) << endl;
+    cout << "lent not equal to raw? " << std::boolalpha << (lentA != a.get()) << endl;
+    cout << "lent not equal to unique? " << std::boolalpha << (lentA != a) << endl;
+    cout << "raw not equal to lent? " << std::boolalpha << (a.get() != lentA) << endl;
+    cout << "unique not equal to lent? " << std::boolalpha << (a != lentA) << endl;
+    //comparisson with nullptr
+    if (lentA == nullptr)
+    {
+        cout << "lent ptr empty" << endl;
+    }
+    else if (lentA != nullptr)
+    {
+        cout << "lent ptr empty" << endl;
+    }
 }
